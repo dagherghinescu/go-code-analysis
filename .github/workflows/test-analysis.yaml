@@ -1,0 +1,21 @@
+name: Test Go-Analysis-Action
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test-go-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.20'
+
+      - name: Test 1 - Action is running
+        uses: ./
